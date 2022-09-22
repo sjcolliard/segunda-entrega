@@ -1,0 +1,95 @@
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+
+
+/* elementos recurrentes */
+
+.titulo {
+    font-size: 3rem;
+    color: white;
+}
+
+.wsubtitulo {
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+.dsubtitulo {
+    font-size: 2rem;
+    color: rgb(51, 51, 51);
+}
+
+
+/* main */
+
+.main__image {
+    height: 750px;
+    text-align: center;
+}
+
+.background {
+    background-color: antiquewhite;
+    background-image: url(../img/main-background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+
+
+
+/* Registro */
+
+.registro {
+    height: 350px;
+    margin: 5rem;
+    justify-content: center;
+}
+
+.registro__formulario{
+    width: 80%;
+
+}
+
+.registro__formulario--items{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+
+
+/* Destinos imágenes */
+
+.imagenes__banner{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.imagenes{
+    width: 100%;
+}
+
+/* cards */
+
+.contenedor__tarjetas {
+    display: inline;
+
+}
+
+
+.tarjeta {
+    padding: 0.5rem;
+    text-align: center;
+    margin: 1rem;
+}
