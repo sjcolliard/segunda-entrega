@@ -1,19 +1,18 @@
 // Calculadora sueldo freelance //
 
 class Sueldo {
-    constructor(nombre, gastoMes, ahorro, horasTrabajo) {
-        this.nombre = nombre;
-        this.gastoMes = gastoMes; 
+    constructor(gastoMes, ahorro, horasTrabajo) {
+        this.gastoMes = gastoMes;
         this.ahorro = ahorro;
         this.horasTrabajo = horasTrabajo;
     }
 
     precioPorHora() {
-        let resultado = ((this.gastoMes + this.ahorro) / horasTrabajo) / 24;
+        let resultado = ((this.gastoMes + this.ahorro) / this.horasTrabajo) / 24;
         return resultado.toFixed(2);
     }
 }
- 
+
 const sueldoFreelance = [];
 
 // Tomar datos del formulario
@@ -23,7 +22,6 @@ const formulario = document.getElementById("formulario");
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const nombre = document.getElementById(nombre).value;
     const gastoMes = document.getElementById("gastoMes").value;
     const ahorro = document.getElementById("ahorro").value;
     const horasTrabajo = document.getElementById("horasTrabajo").value;
@@ -34,36 +32,18 @@ formulario.addEventListener("submit", (e) => {
 
     localStorage.setItem("Sueldo", JSON.stringify(sueldoFreelance));
 
-    Formulario.reset();
+    formulario.reset();
 
     mostrarResultado(sueldo);
 })
 
 //Mostrar resultados 
 
-const resultado = document.getElementById("divResultado");
+const calcularPrecio = document.getElementById("calcularPrecio");
 
-const mostrarResultado = (sueldo) => {
-    let variable ="";
-    variable += `<p> Teniendo en cuenta tus gastos, lo que querés ahorrar y tus horas de trabajo, deberías cobrar $${sueldo.precioPorHora} por hora.</p>`
-    resultado.innerHTML = variable;
+calcularPrecio.onClick = () => {
+    let mostrarResultado = document.createElement("mostrarResultado");
+    mostrarResultado.innerHTML = `<p>Teniendo en cuenta tus gastos y lo que querés ahorrar, deberías cobrar $${sueldo.precioPorHora()} por hora.</p>`;
+
+    mostrarResultado.appendChild(calcularPrecio);
 }
-
-
-let calcularPrecio = document. getElementById ("calcularPrecio");
-
-calcularPrecio.addEventListener("click", precioPorHora());
-
-
-
-/* const calcularPrecio = document.getElementById("calcularPrecio");
-const divResultado = document.getElementById("divResultado");
-
-calcularPrecio.addEventListener("click", () => {
-    const sueldoFreelance = JSON.parse(localStorage.getItem("Sueldo"));
-    let variable = "";
-    sueldoFreelance.forEach(sueldo => {
-        variable += `<p class="resultado"> Nombre ${sueldo.nombre} </p>`
-    });
-    divResultado.innerHTML = variable; 
-}) */

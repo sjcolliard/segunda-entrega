@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Sueldo freelance</title>
 </head>
-<body>
-    <main>
-        <form action="" id="formulario">
-            <label for="gastoMes">
-                Apróximadamente, cuánto gastás por mes <input type="number" id="gastoMes">
-            </label>
-            <label for="ahorro">
-                Cuánto querés ahorrar <input type="number" id="ahorro">
-            </label>
-            <label for="horasTrabajo">
-                Cuántas horas trabajás por día <input type="number" id="gastoMes">
-            </label>
-            <button id="calcularPrecio">Calcular</button>
-        </form>
 
-        <div id="divResultado"></div>
+<body>
+    <main class="main">
+
+        <div class="contenedor">
+            <div class="contenedor__titulo">
+                <h1 class="titulo">¿No sabés cuánto cobrar tu trabajo?</h1>
+                <p class="subtitulo">Calculá el mínimo que deberías cobrar por hora.</p>
+            </div>
+            <form class="formulario" id="formulario">
+                <label class="formulario__elemento" for="gastoMes">
+                    Apróximadamente, cuánto gastás por mes <input type="number" id="gastoMes">
+                </label>
+                <label class="formulario__elemento" for="ahorro">
+                    Cuánto querés ahorrar <input type="number" id="ahorro">
+                </label>
+                <label class="formulario__elemento" for="horasTrabajo">
+                    Cuántas horas trabajás por día <input type="number" id="gastoMes">
+                </label>
+            </form>
+            <div class="contenedor__boton">
+                <button type="submit" id="calcularPrecio">Calcular</button>
+            </div>
+            <div id="divResultado">
+
+            </div>
+        </div>
     </main>
+
+    <script src="./js/main.js"></script>
 </body>
+
 </html>
