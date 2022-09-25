@@ -8,25 +8,46 @@
 
 body {
     font-family: sans-serif;
-    background-image: url(../img/imagen-fondo.jpg);
+    background-image: url(../img/imagenfondo.jpg);
     background-size: 100% auto;
 }
 
 /* elementos recurrentes */
 
 .titulo {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
 }
 
 .subtitulo {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 500;
 }
+
+input {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+    padding: 3px;
+}
+
+input:hover{
+    border-style: solid;
+    border-color: hotpink;
+}
+
+.boton {
+    background-color: hotpink;
+    
+}
+
+/* cajas */ 
 
 .contenedor{
     background-color: rgba(240, 248, 255, 0.719);
     margin: 15rem;
     padding: 3rem;
+    border-radius: 25px;
 }
 
 .contenedor__titulo{
@@ -46,5 +67,6 @@ body {
 }
 
 .contenedor__boton{
-    margin-left: 5rem;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
 }

@@ -1,10 +1,11 @@
 // Calculadora sueldo freelance //
 
 class Sueldo {
-    constructor(gastoMes, ahorro, horasTrabajo) {
-        this.gastoMes = gastoMes;
-        this.ahorro = ahorro;
-        this.horasTrabajo = horasTrabajo;
+    constructor(nombre, gastoMes, ahorro, horasTrabajo, diasPorMes) {
+        this.nombre = nombre;
+        this.gastoMes = parseInt(gastoMes);
+        this.ahorro = parseInt(ahorro);
+        this.horasTrabajo = parseInt(horasTrabajo);
     }
 
     precioPorHora() {
@@ -15,35 +16,47 @@ class Sueldo {
 
 const sueldoFreelance = [];
 
-// Tomar datos del formulario
+// Datos del formulario
 
 const formulario = document.getElementById("formulario");
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const nombre = document.getElementById("nombre").value;
     const gastoMes = document.getElementById("gastoMes").value;
     const ahorro = document.getElementById("ahorro").value;
     const horasTrabajo = document.getElementById("horasTrabajo").value;
 
-
-    const sueldo = new Sueldo(gastoMes, ahorro, horasTrabajo);
+    const sueldo = new Sueldo(nombre, gastoMes, ahorro, horasTrabajo);
     sueldoFreelance.push(sueldo);
 
-    localStorage.setItem("Sueldo", JSON.stringify(sueldoFreelance));
+    console.log(sueldoFreelance);
 
     formulario.reset();
 
     mostrarResultado(sueldo);
-})
+});
 
-//Mostrar resultados 
+
+// mostrar resultado
+
+
+const resultadoSueldo = document.getElementById("divResultado");
+
+const mostrarResultado = (sueldo) => {
+    sueldoFreelance.forEach(sueldo => {
+        let div = document.createElement("div");
+        div.innerHTML = `<p>${sueldo.nombre}, para cubrir tus gastos de $${sueldo.gastoMes} y poder ahorrar $${sueldo.ahorro}, trabajando ${sueldo.horasTrabajo} horas por día, deberías cobrar $${sueldo.precioPorHora()} por hora.</p>`;
+
+        resultadoSueldo.appendChild(div)
+    })
+}
+// botón
 
 const calcularPrecio = document.getElementById("calcularPrecio");
 
-calcularPrecio.onClick = () => {
-    let mostrarResultado = document.createElement("mostrarResultado");
-    mostrarResultado.innerHTML = `<p>Teniendo en cuenta tus gastos y lo que querés ahorrar, deberías cobrar $${sueldo.precioPorHora()} por hora.</p>`;
-
-    mostrarResultado.appendChild(calcularPrecio);
+calcularPrecio.addEventListener("click", () => {
+    mostrarResultado();
 }
+)
